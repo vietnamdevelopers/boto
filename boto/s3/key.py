@@ -983,7 +983,7 @@ class Key(object):
         if encrypt_key:
             headers[provider.server_side_encryption_header] = 'AES256'
 
-        fp.seek(0) #ref: http://stackoverflow.com/questions/13183513/using-boto-for-s3-upload-im-getting-a-eof-error
+        #fp.seek(0) #ref: http://stackoverflow.com/questions/13183513/using-boto-for-s3-upload-im-getting-a-eof-error
         if rewind:
             # caller requests reading from beginning of fp.
             fp.seek(0, os.SEEK_SET)
@@ -996,8 +996,8 @@ class Key(object):
                     # Raise an exception as this is likely a programming error
                     # whereby there is data before the fp but nothing after it.
                     fp.seek(spos)
-                    raise AttributeError(
-                     'fp is at EOF. Use rewind option or seek() to data start.')
+                    #raise AttributeError(
+                    # 'fp is at EOF. Use rewind option or seek() to data start.')
             # seek back to the correct position.
             fp.seek(spos)
 
