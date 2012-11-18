@@ -983,6 +983,7 @@ class Key(object):
         if encrypt_key:
             headers[provider.server_side_encryption_header] = 'AES256'
 
+        fp.seek(0) #ref: http://stackoverflow.com/questions/13183513/using-boto-for-s3-upload-im-getting-a-eof-error
         if rewind:
             # caller requests reading from beginning of fp.
             fp.seek(0, os.SEEK_SET)
